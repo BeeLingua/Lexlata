@@ -1,4 +1,5 @@
 import streamlit as st
+from streamlit.components.v1 import html
 from model import run
 from datetime import datetime
 
@@ -7,7 +8,7 @@ st.set_page_config(
    page_icon="https://media-public.canva.com/RA1JI/MAE0sNRA1JI/1/t.png"
 )
 
-st.markdown('<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">', unsafe_allow_html=True)
+st.markdown("""<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous"><script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script><script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script><script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>""", unsafe_allow_html=True)
 
 st.markdown("""
 <nav class="navbar fixed-top navbar-expand-lg bg-light">
@@ -42,21 +43,18 @@ st.title('LEXLATA')
 input_type = st.radio('Aramak istediğiniz mevzuatı yazarak ya da txt dosyası formatında yükleyerek aratabilirsiniz.',
   options=('Yaz', 'Dosya Yükle'),
   horizontal=True)
-container = st.container()
 res = []
 if input_type == 'Yaz':
-  with container:
-    search_text = st.text_input('Mevzuat giriniz:',placeholder='Aranacak ifade/sayıyı yazınız...')
-    button = st.button("Ara")
-    if button:
-      if input_type == 'Yaz' and search_text:
-        res = run(search_text)
+  search_text = st.text_input('Mevzuat giriniz:',placeholder='Aranacak ifade/sayıyı yazınız...')
+  if search_text:
+    res = run(search_text)
 if input_type == 'Dosya Yükle':
+  container = st.container()
   with container:
     search_file = st.file_uploader("Dosya seçin:")
     button = st.button("Ara")
     if button:
-      if input_type == 'Dosya Yükle' and search_file:
+      if search_file:
         res = run(search_file.getvalue().decode("utf-8"))
 laws = ''
 for i in range(len(res)):
@@ -66,7 +64,7 @@ for i in range(len(res)):
   </div>
   <div class="card-body">
     <p class="card-text">{res[i]['name']}</p>
-    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#{str(i) + '.law'}">İncele</button>
+    <button type="button" class="btn btn-primary" onclick="open({str(i) + '.law'})">İncele</button>
   </div>
   <div class="card-footer text-muted">
     {datetime.strptime(res[i]['date'], '%Y-%m-%d').strftime('%d %B %Y') if isinstance(res[i]['date'], str) else 'Belirsiz' }
@@ -77,7 +75,7 @@ for i in range(len(res)):
     <div class="modal-content">
       <div class="modal-header">
         <h5 class="modal-title">Modal title</h5>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        <button type="button" class="btn-close" data-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
         <p>Modal body text goes here.</p>
@@ -90,9 +88,5 @@ for i in range(len(res)):
   </div>
 </div>""")
   #<p class="mb-1">Mevzuat Bilgisi: {str(res[i]['info'][0:15]).join('...')}</p>
-if button:
-  st.write(f"""<div class="list-group">{laws}</div>""", unsafe_allow_html=True)
-st.markdown(f"""<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
-""",unsafe_allow_html=True)
+js_open = "(function (){console.log(document.getElementById('0.law'));})();"
+html(f"""<div class="list-group">{laws}</div><script>{js_open}</script><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous"><script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script><script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script><script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>""")
