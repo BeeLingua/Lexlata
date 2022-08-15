@@ -34,8 +34,9 @@ st.markdown("""
 #a:-webkit-any-link {color: #2c5e74;}
 st.markdown(""" <style>
 .css-10trblm {font-family: sans-serif;}
+div.element-container span.css-10trblm {color: #fff};
 .css-1v3fvcr {background-color: #2c5e74; background-image: url('https://media-public.canva.com/9KIMs/MAEqpM9KIMs/1/tl.png');}
-.css-13sdm1b {color: #2c5e74;}
+.badge {margin-right: 10px;}
 header {visibility: hidden;}
 footer {visibility: hidden;}
 .card {margin-bottom: 40px;color: black;}
@@ -46,6 +47,12 @@ footer {visibility: hidden;}
 </style> """, unsafe_allow_html=True)
 
 st.title('LEXLATA')
+
+def list_keywords(keywords):
+  keyword_list = ''
+  for keyword in keywords:
+    keyword_list += (f"""<span class="badge badge-dark">{keyword[0]}</span>""")
+  return keyword_list
 
 input_type = st.radio('Aramak istediğiniz mevzuatı yazarak ya da txt dosyası formatında yükleyerek aratabilirsiniz.',
   options=('Yaz', 'Dosya Yükle'),
@@ -67,14 +74,14 @@ laws = ''
 for i in range(len(res)):
   laws += (f"""<div class="card text-center">
   <div class="card-header">
-    {res[i]['number']}
+    {datetime.strptime(res[i]['date'], '%Y-%m-%d').strftime('%d %B %Y') if isinstance(res[i]['date'], str) else 'Belirsiz' }
   </div>
   <div class="card-body">
     <p class="card-text">{res[i]['name']}</p>
     <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#{str(i) + '.law'}">İncele</button>
   </div>
   <div class="card-footer text-muted">
-    {datetime.strptime(res[i]['date'], '%Y-%m-%d').strftime('%d %B %Y') if isinstance(res[i]['date'], str) else 'Belirsiz' }
+    {list_keywords(res[i]['keywords'])}
   </div>
   </div>
   <div class="modal fade" tabindex="-1" id="{str(i) + '.law'}" tabindex="-1" aria-labelledby="{str(i) + '.lawLabel'}" style="display: none;" aria-hidden="true">
@@ -95,6 +102,7 @@ for i in range(len(res)):
     </div>
   </div>""")
   #<p class="mb-1">Mevzuat Bilgisi: {str(res[i]['info'][0:15]).join('...')}</p>
+  #{res[i]['number']}
 st.markdown(f"""<div class="list-group">{laws}</div>""",unsafe_allow_html=True)
 script = """<script>
     sources = ['https://code.jquery.com/jquery-3.2.1.slim.min.js', 'https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js', 'https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js']
