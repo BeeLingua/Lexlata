@@ -46,7 +46,7 @@ tqdm
 transformers
 ```
 ### Docker ile kurulum yapılacaksa:
-Bütün bağlılıklar imajın içerisindedir. Projeyi çalıştırmak için ek olarak indirilmesi gereken bir şey yoktur.
+Bütün bağlılıklar imajın içerisindedir. Projeyi çalıştırmak için ek olarak indirilmesi gereken bir şey yoktur. Ayrıca imaj, yukarıdaki bağlılıklara ek olarak projenin web uygulaması şeklinde sunulması için açık kaynak kodlu 'streamlit' çatısını kullanmaktadır.
 
 ## Kurulum ve Kullanım
 Proje, Jupyter Notebook kullanarak veya Docker konteyneri oluşturularak 2 farklı şekilde kullanılabilir.
