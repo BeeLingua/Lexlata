@@ -1,7 +1,11 @@
 # Lexlata
 Kamuda Mevzuat Arama Motoru
 
-Geliştiren Takım: BeeLingua
+## Biz Kimiz?
+BeeLingua, çeşitli disiplinlerde eğitim görüp doğal dil işleme alanında geliştirecekleri projelerle sektörde tespit ettikleri sorunlara nokta atışı çözümler geliştirmeyi hedefleyen, aynı zamanda İTÜ Doğal Dil İşleme Araştırma Grubu bünyesinde çalışmalarına devam eden bir grup İTÜ öğrencisi tarafından kurulmuştur.
+
+## Lexlata Nedir?
+Lexlata; kamunun ihtiyaçları doğrultusunda geliştirilen, doğal dil işleme metotlarıyla desteklenmiş bir mevzuat arama motorudur. İçerdiği ulusal ve uluslararası yönetmelikler, kanunlar, kararnameler, tüzükler, genelgeler ve tebliğler arasında kelime ve kelime grubu ile arama yapma özelliğinin yanı sıra çıkan sonuçlarda otomatik doküman özetleme, otomatik etiketleme ile doküman sınıflandırma, sorulan soruya veri tabanındaki dokümanlardan yararlanarak cevap verebilme özellikleri ile Lexlata, hızlı ve etkili şekilde ihtiyaç duyulan dokümana ulaşım sağlayacaktır.
 
 ![Project Image](https://github.com/BeeLingua/Lexlata/blob/main/documentation/ui_image.png)
 
@@ -10,7 +14,7 @@ Geliştiren Takım: BeeLingua
 - BERT modelini eğitmek çok fazla kaynak gerektirdiğinden önceden eğitilmiş bir modeli (https://huggingface.co/dbmdz/bert-base-turkish-cased) temel aldık.
 - BERT modelini bize verilen veri kümesiyle ve mevzuat.gov.tr sitesinden çektiğimiz veriyle eğittik.
 - SBERT kütüphanesini kullanarak bütün cümlelerin vektör temsillerini elde edip kaydettik.
-- Yine SBERT kütüphanesi kullanarak sorgu olarak girilen dokümanın da vektör temsilini elde ettik.
+- Yine SBERT kütüphanesini kullanarak sorgu olarak girilen dokümanın da vektör temsilini elde ettik.
 - Girilen dokümanın temsili ile sistemde kayıtlı olan dokümanlar içerisindeki cümlelerin temsillerini kosinüs benzerliği metoduyla karşılaştırdık.
 - Bu benzerliğe göre en yakın dokümanları sıraladık.
 
