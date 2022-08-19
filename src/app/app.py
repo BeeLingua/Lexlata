@@ -30,13 +30,22 @@ st.markdown("""
 
 #a:-webkit-any-link {color: #2c5e74;}
 st.markdown(""" <style>
+.css-1yjuwjr { color: rgb(250, 250, 250)!important}
+.st-dg {caret-color: rgb(250, 250, 250)!important;}
+.st-cv {background-color: rgb(38, 39, 48)!important;}
+.st-cu {border-bottom-color: rgb(38, 39, 48)!important;}
+.st-ct {border-top-color: rgb(38, 39, 48)!important;}
+.st-cs {border-right-color: rgb(38, 39, 48)!important;}
+.st-cr {border-left-color: rgb(38, 39, 48)!important;}
+.css-ffhzg2 { position: absolute; background: rgb(14, 17, 23)!important; color: rgb(250, 250, 250)!important; inset: 0px; overflow: hidden;}
+.st-ca {color: #fff!important;}
 .st-cl {border-bottom-width: 2px;}
 .st-ck {border-top-width: 2px;}
 .st-cj {border-right-width: 2px;}
 .st-ci {border-left-width: 2px;}
 nav.bg-light {background-color: #e6e48c!important;}
-.css-10trblm {font-family: sans-serif;}
-div.css-zt5igj + span {color: #fff;}
+.css-10trblm {font-family: sans-serif; color: #fff!important}
+div.css-zt5igj + span {color: #fff!important}
 .css-1v3fvcr {background-color: #2c5e74; background-image: url('https://media-public.canva.com/9KIMs/MAEqpM9KIMs/1/tl.png');}
 .badge {margin-right: 10px;}
 header {visibility: hidden;}
