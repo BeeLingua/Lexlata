@@ -2,9 +2,6 @@ import streamlit as st
 from streamlit.components.v1 import html
 from model_final import getSimilarDocuments
 from datetime import datetime
-import locale
-
-locale.setlocale(locale.LC_ALL, 'turkish')
 
 st.set_page_config(
    page_title="Lexlata",

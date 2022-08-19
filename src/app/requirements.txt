@@ -1,13 +1,8 @@
-gensim==4.1.2
-nltk==3.7
-numpy==1.21.5
+numpy==1.23.2
 pandas==1.4.3
-rake_nltk==1.0.6
 scikit_learn==1.1.2
-scipy==1.7.3
 sentence_transformers==2.2.2
 streamlit==1.11.0
 torch==1.12.1
 tqdm==4.64.0
 transformers==4.18.0
-zeyrek==0.1.2
