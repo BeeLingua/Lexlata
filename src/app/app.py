@@ -30,7 +30,17 @@ st.markdown("""
 
 #a:-webkit-any-link {color: #2c5e74;}
 st.markdown(""" <style>
-.css-1yjuwjr { color: rgb(250, 250, 250)!important}
+.css-10434yk { margin: 0px; border-color: rgb(255, 75, 75) rgba(250, 250, 250, 0.2) rgba(250, 250, 250, 0.2); -webkit-box-flex: 0; flex-grow: 0; flex-shrink: 0; }
+.css-znku1x { color: #fff!important;}
+.st-c0{background-color: rgb(49, 51, 63)}
+.st-g9 {border-bottom-color: rgb(38, 39, 48)!important;}
+.st-g8 {border-top-color: rgb(38, 39, 48)!important;}
+.st-g7 {border-right-color: rgb(38, 39, 48)!important;}
+.st-g6 {border-left-color: rgb(38, 39, 48)!important;}
+.st-g3 { color: #fff!important;}
+.st-ga {caret-color: rgb(250, 250, 250)!important;}
+.css-15tx938 {color: #fff!important;}
+.css-1yjuwjr {color: rgb(250, 250, 250)!important;}
 .st-dg {caret-color: rgb(250, 250, 250)!important;}
 .st-cv {background-color: rgb(38, 39, 48)!important;}
 .st-cu {border-bottom-color: rgb(38, 39, 48)!important;}
@@ -44,7 +54,7 @@ st.markdown(""" <style>
 .st-cj {border-right-width: 2px;}
 .st-ci {border-left-width: 2px;}
 nav.bg-light {background-color: #e6e48c!important;}
-.css-10trblm {font-family: sans-serif; color: #fff!important}
+.css-10trblm {font-family: sans-serif;}
 div.css-zt5igj + span {color: #fff!important}
 .css-1v3fvcr {background-color: #2c5e74; background-image: url('https://media-public.canva.com/9KIMs/MAEqpM9KIMs/1/tl.png');}
 .badge {margin-right: 10px;}
@@ -60,11 +70,16 @@ a.btn-primary{color: #fff;}
 
 st.title('LEXLATA')
 
-def list_keywords(keywords):
-  keyword_list = ''
-  for keyword in keywords:
-    keyword_list += (f"""<span class="badge badge-dark">{keyword[0]}</span>""")
-  return keyword_list
+@st.cache(suppress_st_warning=True, show_spinner=False)
+def run(query_str, query_int=10):
+  with st.spinner('Mevzuat aranıyor...'):
+    return getSimilarDocuments(query_str, query_int)
+
+# def list_keywords(keywords):
+#   keyword_list = ''
+#   for keyword in keywords:
+#     keyword_list += (f"""<span class="badge badge-dark">{keyword[0]}</span>""")
+#   return keyword_list
 
 input_type = st.radio('Aramak istediğiniz mevzuatı yazarak ya da txt dosyası formatında yükleyerek aratabilirsiniz.',
   options=('Yaz', 'Dosya Yükle'),
@@ -73,7 +88,7 @@ res = []
 if input_type == 'Yaz':
   search_text = st.text_input('Mevzuat giriniz:',placeholder='Aranacak ifade/sayıyı yazınız...')
   if search_text:
-    res = getSimilarDocuments(search_text, topk=5)
+    res = run(search_text, 5)
 if input_type == 'Dosya Yükle':
   container = st.container()
   with container:
@@ -81,7 +96,7 @@ if input_type == 'Dosya Yükle':
     button = st.button("Ara")
     if button:
       if search_file:
-        res = getSimilarDocuments(search_file.getvalue().decode("utf-8"), topk=5)
+        res = run(search_file.getvalue().decode("utf-8"), 5)
 laws = ''
 for i in range(len(res)):
   laws += (f"""<div class="card text-center">
