@@ -90,4 +90,4 @@ docker run -d --name Lexlata -p 8501:8501 sfurkan20/lexlata
 http://localhost:8501
 ```
 
-4- Arama yerine sorgunuzu girerek veya doküman yükleyerek arama yapabilirsiniz.
+4- Yaklaşık 5 dakika süren ilk yükleme süresi sonunda arama yerine sorgunuzu girerek veya doküman yükleyerek arama yapabilirsiniz.
