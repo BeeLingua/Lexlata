@@ -83,7 +83,7 @@ pip install transformers==4.18.0
 2- Komut satırını açıp aşağıdaki komutları yazın:
 ```
 docker pull sfurkan20/lexlata
-docker run -d --name Lexlata -p 0.0.0.0:8501 sfurkan20/lexlata
+docker run -d --name Lexlata -p 8501:8501 sfurkan20/lexlata
 ```
 3- Tarayıcınızla aşağıdaki adrese gidin:
 ```
