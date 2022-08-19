@@ -67,7 +67,7 @@ pip install transformers==4.18.0
 ```
 
 
-2- Github reposu üzerindeki 'Releases' kısmından projenin son sürümünü indirin.
+2- Github reposu üzerindeki 'Releases' kısmından projenin son sürümünü indirin (Jupyter Notebooks başlıklı release).
 
 3- İndirdiğiniz sıkıştırılmış dosyayı herhangi bir klasöre çıkartın.
 
