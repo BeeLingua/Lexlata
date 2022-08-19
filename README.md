@@ -3,6 +3,8 @@ Kamuda Mevzuat Arama Motoru
 
 Geliştiren Takım: BeeLingua
 
+![Project Image](https://github.com/BeeLingua/Lexlata/blob/main/documentation/ui_image.png)
+
 ## Geliştirme Süreci ve Yöntem
 - Öncelikle doc2vec ve tf-idf modellerini denedik ve projemizin temelini attık, sonrasında BERT modelinin başarımının yüksek olması nedeniyle BERT modelini kullanmaya karar verdik.
 - BERT modelini eğitmek çok fazla kaynak gerektirdiğinden önceden eğitilmiş bir modeli (https://huggingface.co/dbmdz/bert-base-turkish-cased) temel aldık.
