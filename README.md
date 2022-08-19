@@ -53,7 +53,7 @@ transformers
 Bütün bağlılıklar imajın içerisindedir. Projeyi çalıştırmak için ek olarak indirilmesi gereken bir şey yoktur. Ayrıca imaj, yukarıdaki bağlılıklara ek olarak projenin web uygulaması şeklinde sunulması için açık kaynak kodlu 'streamlit' çatısını kullanmaktadır.
 
 ## Kurulum ve Kullanım
-Proje, Jupyter Notebook kullanarak veya Docker konteyneri oluşturularak 2 farklı şekilde kullanılabilir.
+Proje, Jupyter Notebook kullanarak veya Docker konteyneri oluşturularak 2 farklı şekilde kullanılabilir. (Daha kullanıcı dostu bir yöntem sunması nedeniyle Docker kullanılması önerilmektedir.)
 ### Jupyter Notebook Kullanarak Kurulum
 1- Bilgisayarınızda Jupyter Notebook yüklü değilse yükleyin (https://jupyter.org/install). Jupyter Notebook projenin çalıştırılması için gerekli olan tüm modüllere sahiptir. Buna rağmen modülün bulunamadığına dair hata almanız halinde projenin ihtiyaç duyduğu her modülün yüklenmesi için kullanılacak komutlar aşağıdadır.
 ```
@@ -73,7 +73,9 @@ pip install transformers==4.18.0
 
 3- Jupyter Notebook kullanarak kullanmak istediğiniz modele göre 'Lexlata-Final-Model.ipynb' veya 'Lexlata-Final-Model-Classification-Alternative.ipynb' dosyalarından birini açın.
 
-4- Son hücrede bulunan örnek kullanımı inceleyerek kolayca kullanmaya başlayabilirsiniz.
+4- Yukarıda bulunan 'Cell' sekmesine tıkladıktan sonra 'Run All' seçeneğine tıklayın, bütün hücreler çalıştırılana kadar bekleyin.
+
+5- Bütün hücreler çalıştırıldıktan sonra son hücrede bulunan INPUT_TEXT değişkenini istediğiniz şekilde değiştirerek çalıştırabilir ve sonucu görebilirsiniz.
 
 ### Docker Kullanarak Kurulum
 1- Yüklü değilse Docker indirip kurun. (https://www.docker.com/products/docker-desktop)
