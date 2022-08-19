@@ -69,13 +69,13 @@ pip install transformers==4.18.0
 
 2- Github reposu üzerindeki 'Releases' kısmından projenin son sürümünü indirin.
 
-3- İndirdiğiniz dosyayı herhangi bir klasöre çıkartın.
+3- İndirdiğiniz sıkıştırılmış dosyayı herhangi bir klasöre çıkartın.
 
-3- Jupyter Notebook kullanarak kullanmak istediğiniz modele göre 'Lexlata-Final-Model.ipynb' veya 'Lexlata-Final-Model-Classification-Alternative.ipynb' dosyalarından birini açın.
+4- Jupyter Notebook kullanarak, kullanmak istediğiniz modele göre 'Lexlata-Final-Model.ipynb' (ana model) veya 'Lexlata-Final-Model-Classification-Alternative.ipynb' (alternatif model) dosyalarından birini açın.
 
-4- Yukarıda bulunan 'Cell' sekmesine tıkladıktan sonra 'Run All' seçeneğine tıklayın, bütün hücreler çalıştırılana kadar bekleyin.
+5- Yukarıda bulunan 'Cell' sekmesine tıkladıktan sonra 'Run All' seçeneğine tıklayın, bütün hücreler çalıştırılana kadar bekleyin.
 
-5- Bütün hücreler çalıştırıldıktan sonra son hücrede bulunan INPUT_TEXT değişkenini istediğiniz şekilde değiştirerek çalıştırabilir ve sonucu görebilirsiniz.
+6- Bütün hücreler çalıştırıldıktan sonra son hücrede bulunan INPUT_TEXT değişkenini istediğiniz şekilde değiştirerek çalıştırabilir ve sonucu görebilirsiniz.
 
 ### Docker Kullanarak Kurulum
 1- Yüklü değilse Docker indirip kurun. (https://www.docker.com/products/docker-desktop)
