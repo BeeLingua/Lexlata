@@ -19,7 +19,7 @@ Geliştiren Takım: BeeLingua
 
   https://huggingface.co/dbmdz/bert-base-turkish-uncased
 
-- Geliştirme süreci sonunda bizim tarafımızdan sunulan model:
+- Geliştirme süreci sonunda bizim tarafımızdan sunulan LexBERT modeli:
 
   https://huggingface.co/sfurkan/LexBERT-turkish-uncased
 
