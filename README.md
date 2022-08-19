@@ -55,7 +55,7 @@ Bütün bağlılıklar imajın içerisindedir. Projeyi çalıştırmak için ek 
 ## Kurulum ve Kullanım
 Proje, Jupyter Notebook kullanarak veya Docker konteyneri oluşturularak 2 farklı şekilde kullanılabilir. (Daha kullanıcı dostu bir yöntem sunması nedeniyle Docker kullanılması önerilmektedir.)
 ### Jupyter Notebook Kullanarak Kurulum
-1- Bilgisayarınızda Jupyter Notebook yüklü değilse yükleyin (https://jupyter.org/install). Jupyter Notebook projenin çalıştırılması için gerekli olan tüm modüllere sahiptir. Buna rağmen modülün bulunamadığına dair hata almanız halinde projenin ihtiyaç duyduğu her modülün yüklenmesi için kullanılacak komutlar aşağıdadır.
+1- Bilgisayarınızda Jupyter Notebook yüklü değilse yükleyin (https://jupyter.org/install). Jupyter Notebook, projenin çalıştırılması için gerekli olan tüm modüllere sahiptir. Buna rağmen herhangi bir modülün bulunamadığına dair hata almanız halinde projenin ihtiyaç duyduğu her bir modülün yüklenmesi için kullanılacak komutlar aşağıdadır.
 ```
 pip install numpy==1.23.2
 pip install pandas==1.4.3
