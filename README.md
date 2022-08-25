@@ -32,7 +32,7 @@ Lexlata; kamunun ihtiyaçları doğrultusunda geliştirilen, doğal dil işleme 
   https://huggingface.co/sfurkan/LexBERT-textclassification-turkish-uncased
 
 ## Kullanılan Veri Kümeleri
-- Başlangıçta bize verilen 76 MB'lık veri kümesi
+- kanunum-nlp-doc-analysis-dataset.csv - Kanunum (Karakullukçu Danışmanlık A.Ş.) tarafından hazırlanan Veri Seti
 
 - https://www.mevzuat.gov.tr sitesinden topladığımız dokümanları içeren 131 MB'lık veri kümesi:
 
